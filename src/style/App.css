@@ -6,6 +6,26 @@ body {
   background-color: #fafafa;
 }
 
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2rem;
+}
+
+.app__left {
+  -webkit-box-flex: 0.9;
+      -ms-flex: 0.9;
+          flex: 0.9;
+}
+
+.app__right {
+  height: 90vh;
+}
+
 .app__header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,5 +46,14 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+  .app {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=App.css.map */
