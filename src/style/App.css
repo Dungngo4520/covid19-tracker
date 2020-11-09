@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+body {
+  background-color: #fafafa;
+}
+
 .app__header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,5 +17,14 @@
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 20px;
+}
+
+.app__stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=App.css.map */
