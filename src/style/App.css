@@ -22,10 +22,6 @@ body {
           flex: 0.9;
 }
 
-.app__right {
-  height: 90vh;
-}
-
 .app__header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -55,5 +51,20 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+
+.app__right {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app__right h3 {
+  padding: 10px;
 }
 /*# sourceMappingURL=App.css.map */
