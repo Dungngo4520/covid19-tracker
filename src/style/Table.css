@@ -1,0 +1,46 @@
+.table {
+  margin-top: 20px;
+  height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+  color: #333333;
+  -webkit-transition: all 0.2ms ease-in-out;
+  transition: all 0.2ms ease-in-out;
+}
+
+.table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.table td {
+  padding: 0.5rem;
+}
+
+.table:hover::-webkit-scrollbar {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.table:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.table::-webkit-scrollbar {
+  width: 6px;
+  border: 0.5px solid transparent;
+  border-radius: 6px;
+}
+
+.table::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0);
+}
+/*# sourceMappingURL=Table.css.map */
