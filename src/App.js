@@ -4,14 +4,18 @@ import { useEffect, useState } from 'react'
 import InfoBox from './InfoBox'
 import Map from './Map'
 import Table from './Table'
-import { sortData } from './util'
+import { printStat, printTotal, sortData } from './util'
 import LineGraph from './LineGraph'
+import 'leaflet/dist/leaflet.css'
 
 function App() {
 	const [countries, setCountries] = useState([])
 	const [country, setCountry] = useState('worldwide')
 	const [countryInfo, setCountryInfo] = useState({})
-	const [ tableData, setTableData ] = useState( [] )
+	const [tableData, setTableData] = useState([])
+	const [mapCenter, setMapCenter] = useState([25, 0])
+	const [mapZoom, setMapZoom] = useState(2)
+	const [mapCountries, setMapCountries] = useState([])
 
 	useEffect(() => {
 		fetch('https://disease.sh/v3/covid-19/all')
@@ -32,6 +36,7 @@ function App() {
 					const sortedData = sortData(data)
 					setCountries(countries)
 					setTableData(sortedData)
+					setMapCountries(data)
 				})
 		}
 		getCountriesData()
@@ -39,14 +44,19 @@ function App() {
 
 	const onCountryChange = async (e) => {
 		const countryCode = e.target.value
-		setCountry(countryCode)
 
-		const url = countryCode === 'worldwide' ? 'https://disease.sh/v3/covid-19/all' : `https://disease.sh/v3/covid-19/countries/${countryCode}`
+		const url =
+			countryCode === 'worldwide'
+				? 'https://disease.sh/v3/covid-19/all'
+				: `https://disease.sh/v3/covid-19/countries/${countryCode}`
 
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
+				setCountry(countryCode)
 				setCountryInfo(data)
+				setMapCenter(countryCode === 'worldwide' ? [25, 0] : [data.countryInfo.lat, data.countryInfo.long])
+				setMapZoom(countryCode === 'worldwide' ? 2 : 4)
 			})
 	}
 
@@ -66,12 +76,24 @@ function App() {
 				</div>
 
 				<div className='app__stats'>
-					<InfoBox title='New Cases' cases={countryInfo.todayCases} total={countryInfo.cases} />
-					<InfoBox title='New Recovered' cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-					<InfoBox title='New Deaths' cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
+					<InfoBox
+						title='New Cases'
+						cases={printStat(countryInfo.todayCases)}
+						total={printTotal(countryInfo.cases)}
+					/>
+					<InfoBox
+						title='New Recovered'
+						cases={printStat(countryInfo.todayRecovered)}
+						total={printTotal(countryInfo.recovered)}
+					/>
+					<InfoBox
+						title='New Deaths'
+						cases={printStat(countryInfo.todayDeaths)}
+						total={printTotal(countryInfo.deaths)}
+					/>
 				</div>
 
-				<Map />
+				<Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
 			</div>
 			<Card className='app__right'>
 				<CardContent>

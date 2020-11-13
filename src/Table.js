@@ -1,5 +1,6 @@
 import React from 'react'
 import './style/Table.css'
+import { printTotal } from './util'
 
 function Table({ countries }) {
 	return (
@@ -8,7 +9,7 @@ function Table({ countries }) {
 				<tr>
 					<td>{country}</td>
 					<td>
-						<strong>{cases.toLocaleString()}</strong>
+						<strong>{printTotal(cases)}</strong>
 					</td>
 				</tr>
 			))}

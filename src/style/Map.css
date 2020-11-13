@@ -1,1 +1,77 @@
-/* No CSS *//*# sourceMappingURL=Map.css.map */
+.map {
+  height: 50vh;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  -webkit-box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.5);
+}
+
+.map .leaflet-container {
+  height: 100%;
+  border-radius: 15px;
+}
+
+.info-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 5px;
+}
+
+.info-country {
+  font-weight: 800;
+  padding: 5px;
+}
+
+.info-flag {
+  height: 2rem;
+  width: 3rem;
+  background-size: cover;
+}
+
+.info-flag img {
+  width: 100%;
+}
+
+.info-cases,
+.info-recovered,
+.info-deaths {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.info-cases p:first-of-type,
+.info-recovered p:first-of-type,
+.info-deaths p:first-of-type {
+  font-weight: 900;
+}
+
+.info-cases {
+  color: #cc1034;
+}
+
+.info-recovered {
+  color: #2da116;
+}
+
+.info-deaths {
+  color: #777;
+}
+
+.leaflet-popup-content p {
+  margin: 0 !important;
+}
+/*# sourceMappingURL=Map.css.map */

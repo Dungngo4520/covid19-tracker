@@ -1,0 +1,61 @@
+.map {
+	height: 50vh;
+	background-color: white;
+	padding: 1rem;
+	border-radius: 20px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	box-shadow: 0 0 8px 4px rgba(black, 0.5);
+
+	.leaflet-container {
+		height: 100%;
+		border-radius: 15px;
+	}
+}
+
+.info-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 5px;
+}
+
+.info-country {
+	font-weight: 800;
+	padding: 5px;
+}
+
+.info-flag {
+	height: 2rem;
+	width: 3rem;
+	background-size: cover;
+	img {
+		width: 100%;
+	}
+}
+
+.info-cases,
+.info-recovered,
+.info-deaths {
+	display: flex;
+	justify-content: space-between;
+	p:first-of-type {
+		font-weight: 900;
+	}
+}
+
+.info-cases {
+	color: #cc1034;
+}
+
+.info-recovered {
+	color: #2da116;
+}
+
+.info-deaths {
+	color: #777;
+}
+
+.leaflet-popup-content p {
+	margin: 0 !important;
+}

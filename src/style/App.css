@@ -44,6 +44,18 @@ body {
           justify-content: space-between;
 }
 
+.app__stats > div:nth-child(1) > div > div > h2 {
+  color: #cc1034;
+}
+
+.app__stats > div:nth-child(2) > div > div > h2 {
+  color: #2da116;
+}
+
+.app__stats > div:nth-child(3) > div > div > h2 {
+  color: #777777;
+}
+
 @media (max-width: 990px) {
   .app {
     -webkit-box-orient: vertical;
